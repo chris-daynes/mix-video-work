@@ -1,19 +1,25 @@
-const morph = require('morphdom')
+const h = require('hyperscript')
+const message = document.createElement('div')
 
-const greeting = require('./greetingTemplate')
+function Todos(listOftodos) {
+  return h('div', listOftodos.map((todo) => {
+    const customClass = {
+      className: todo.done ? 'done': '',
 
+    }
+    return h('p', customClass, todo.description)
+  }))
+}
 
 const state = {
-  name: 'Chris'
+  todo: [
+    {description: 'Buy some milk', done: false},
+    {description: 'Walk the dog', done: false},
+    {description: 'Water the plants', done: true},
+  ]
 }
 
-const view = greeting(state.name, changeOnClick)
+const todo = Todos(state.todo)
 
 
-function changeOnClick() {
-  state.name = 'Ella and Jon'
-  const newView = greeting(state.name)
-  morph(view, newView)
-}
-
-document.body.appendChild(view)
+document.body.appendChild(todo)

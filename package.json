@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "budo index.js --port 4000 --live"
+    "start": "budo index.js --css style.css --port 4000 --live"
   },
   "browserify": {
     "transform": [

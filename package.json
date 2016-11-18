@@ -1,0 +1,24 @@
+{
+  "name": "mix-video-work",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "budo index.js --port 4000 --live"
+  },
+  "browserify": {
+    "transform": [
+      "es2040"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "budo": "^9.2.2",
+    "es2040": "^1.2.4",
+    "hyperscript": "^2.0.2",
+    "morphdom": "^2.2.0"
+  }
+}

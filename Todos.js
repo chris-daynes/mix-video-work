@@ -3,16 +3,16 @@ const h = require('hyperscript')
 module.exports = Todos
 
 
-function Todos(listOftodos, clickHandler) {
+function Todos(listOftodos, dispatch) {
   return h('div', listOftodos.map((todo, index) => {
-    return Todo(todo, index, clickHandler)
+    return Todo(todo, index, dispatch)
   }))
 
-  function Todo(todoItem, index, clickHandler) {
+  function Todo(todoItem, index, dispatch) {
     const { done, description } = todoItem
     const customClass = {
       className: done ? 'done': '',
-      onclick: () => clickHandler(index)
+      onclick: () => dispatch({type: 'TOGGLE_DONE', payload: index})
     }
     return h('p', customClass, `[${index}] ${description}`)
   }

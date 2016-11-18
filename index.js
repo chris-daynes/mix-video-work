@@ -2,6 +2,7 @@
 const morph = require('morphdom')
 
 const Todos = require('./Todos')
+const reducer = require('./reducer');
 
 
 const message = document.createElement('div')
@@ -15,15 +16,11 @@ const state = {
   ]
 }
 
-const initialState = Todos(state.todos, toggleDone)
+const initialState = Todos(state.todos, dispatch)
+document.body.appendChild(initialState)
 
-function toggleDone(index) {
-  state.todos[index].done = !state.todos[index].done
+function dispatch(action) {
+  state = reducer(state, action)
   const newState = Todos(state.todos)
   morph(initialState, newState)
 }
-
-
-
-
-document.body.appendChild(initialState)

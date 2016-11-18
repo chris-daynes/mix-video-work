@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "browserify ./test/*.js | node | tap-spec",
     "start": "budo index.js --css style.css --port 4000 --live"
   },
   "browserify": {
@@ -17,8 +17,14 @@
   "license": "ISC",
   "dependencies": {
     "budo": "^9.2.2",
+    "clone": "^2.0.0",
+    "deep-freeze": "0.0.1",
     "es2040": "^1.2.4",
     "hyperscript": "^2.0.2",
     "morphdom": "^2.2.0"
+  },
+  "devDependencies": {
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.2"
   }
 }
